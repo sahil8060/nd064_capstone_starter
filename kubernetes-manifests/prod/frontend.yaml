@@ -15,7 +15,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: udacityproject/frontend:latest
+          image: udacityproject/frontend:sha-128b733
           ports:
           - containerPort: 8080
           readinessProbe:
