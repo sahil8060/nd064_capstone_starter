@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
 
   # st the static IP for the vagrant box
   config.vm.network "private_network", ip: "192.168.50.4"
+  config.vm.network "forwarded_port", guest: 6443, host: 6443
 
   # consifure the parameters for VirtualBox provider
   config.vm.provider "virtualbox" do |vb|
@@ -17,7 +18,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provision "shell", inline: <<-SHELL
     # install a k3s cluster
-    curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.19.2+k3s1 K3S_KUBECONFIG_MODE="644" sh -
+    curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.19.5+k3s1 K3S_KUBECONFIG_MODE="644" sh -
     # install Helm
     curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
   SHELL

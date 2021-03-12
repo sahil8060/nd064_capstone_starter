@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    # For use as a Cluster add-on (https://github.com/kubernetes/kubernetes/tree/master/cluster/addons)
+    # If you are NOT using this as an addon, you should comment out this line.
+    kubernetes.io/cluster-service: 'true'
+    kubernetes.io/name: monitoring-grafana
+  name: grafana-nodeport
+  namespace: monitoring
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+    nodePort: 30030
+  selector:
+    app.kubernetes.io/instance: prometheus
+    app.kubernetes.io/name: grafana
+  type: NodePort
