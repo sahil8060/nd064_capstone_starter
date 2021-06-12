@@ -13,4 +13,8 @@ spec:
     repoURL: https://github.com/sahil8060/nd064_capstone_starter
     targetRevision: HEAD
   syncPolicy:
-    manual: {}
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
