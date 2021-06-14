@@ -1,4 +1,4 @@
-module github.com/GoogleCloudPlatform/microservices-demo/src/frontend
+module github.com/sahil8060/nd064_capstone_starter/src/frontend
 
 go 1.15
 
