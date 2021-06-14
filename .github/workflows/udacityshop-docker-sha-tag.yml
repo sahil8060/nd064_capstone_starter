@@ -64,6 +64,16 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/productcatalogservice
           # add git short SHA as Docker tag
           tag-sha: true
+      -
+        name: Docker meta
+        id: docker_meta5
+        uses: crazy-max/ghaction-docker-meta@v1
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/adservicev2
+          # add git short SHA as Docker tag
+          tag-sha: true
 
       -
         name: Set up QEMU
@@ -117,3 +127,13 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.docker_meta4.outputs.tags }}
           labels: ${{ steps.docker_meta4.outputs.labels }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: src/adservice-v2
+          file: src/adservice-v2/Dockerfile
+          platforms: linux/amd64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.docker_meta1.outputs.tags }}
+          labels: ${{ steps.docker_meta1.outputs.labels }}
