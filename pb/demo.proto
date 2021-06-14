@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-option go_package = "/genproto";
+option go_package = "/";
 
 package hipstershop;
 
