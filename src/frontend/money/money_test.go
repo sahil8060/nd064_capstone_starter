@@ -19,7 +19,7 @@ import (
 	"reflect"
 	"testing"
 
-	pb "github.com/sahil8060/nd064_capstone_starter/src/frontend/genproto"
+	pb "github.com/GoogleCloudPlatform/microservices-demo/src/frontend/genproto"
 )
 
 func mmc(u int64, n int32, c string) pb.Money { return pb.Money{Units: u, Nanos: n, CurrencyCode: c} }
