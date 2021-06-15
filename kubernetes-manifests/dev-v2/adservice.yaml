@@ -16,7 +16,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: udacityproject1/pythonadservice:latest
+        image: udacityproject1/pythonadservice:sha-5b00895
         ports:
         - containerPort: 9556
         env:
