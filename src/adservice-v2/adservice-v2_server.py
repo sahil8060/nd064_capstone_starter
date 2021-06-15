@@ -47,7 +47,8 @@ if __name__ == "__main__":
 
     # create gRPC server, add the Ad-v2 service and start it
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
-    demo_pb2_grpc.add_AdServiceV2Servicer_to_server(AdServiceV2(), server)
+    service = AdServiceV2()
+    demo_pb2_grpc.add_AdServiceV2Servicer_to_server(service, server)
 
     # Uncomment to add the HealthChecks to the gRPC server to the Ad-v2 service
     health_pb2_grpc.add_HealthServicer_to_server(service, server)
