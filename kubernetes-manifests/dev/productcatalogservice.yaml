@@ -16,7 +16,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: udacityproject/productcatalogservice:latest
+        image: udacityproject1/productcatalogservice:latest
         ports:
         - containerPort: 3550
         env:
